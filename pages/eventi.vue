@@ -8,13 +8,17 @@
         <div class="row">
           <div class="col-12 blog-main">
             <h3 class="pb-3 mb-4 font-italic border-bottom">Eventi</h3>
-            <div v-for="evento in eventi" :key="evento.title" class="border-bottom">
+            <div
+              v-for="evento in eventi"
+              :key="evento.title"
+              class="border-bottom"
+            >
               <div class="blog-post">
                 <h2 class="blog-post-title">{{ evento.title }}</h2>
                 <p class="blog-post-meta">
-                  January 1, 2014 by <a href="#">Mark</a>
+                  {{ formatDate(evento.createdAt) }} da <a>{{evento.author}}</a>
                 </p>
-               <nuxt-content :document="evento" />
+                <nuxt-content :document="evento" />
               </div>
             </div>
           </div>
@@ -27,11 +31,15 @@
 <script>
 export default {
   async asyncData({ $content, params }) {
-    const eventi = await $content('eventi')
-      .sortBy('createdAt', 'desc')
-      .fetch()
+    const eventi = await $content('eventi').sortBy('createdAt', 'desc').fetch()
 
     return { eventi }
+  },
+  methods: {
+    formatDate(date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' }
+      return new Date(date).toLocaleDateString('it', options)
+    },
   },
 }
 </script>
