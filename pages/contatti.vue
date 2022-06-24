@@ -1,5 +1,6 @@
 <template>
-  <form name="contact" netlify>
+  <form name="contact" netlify data-netlify="true"
+        data-netlify-honeypot="bot-field">
     <!-- Name input -->
     <div class="form-outline mb-4">
       <label class="form-label">Nome e Congnome </label>
