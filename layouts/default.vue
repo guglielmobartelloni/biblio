@@ -1,15 +1,13 @@
 <template>
   <div>
-    <div class="container">
-      <header class="blog-header py-3">
+    <header class="blog-header py-3 bg-light">
+      <div class="container">
         <div class="row flex-nowrap justify-content-between align-items-center">
           <div class="col-4 pt-1">
             <nuxt-link class="text-muted" to="/"><b>Home</b></nuxt-link>
           </div>
           <div class="col-4 text-center">
-            <nuxt-link class="blog-header-logo text-dark" to="/"
-              >Gruppo San Giorgio</nuxt-link
-            >
+            <nuxt-link class="blog-header-logo text-dark" to="/"></nuxt-link>
           </div>
           <div class="col-4 d-flex justify-content-end align-items-center">
             <!-- <a class="text-muted" href="#"> -->
@@ -25,10 +23,12 @@
             >
           </div>
         </div>
-      </header>
+      </div>
+    </header>
+    <div class="container">
       <Nuxt />
     </div>
-    <footer class="text-center text-lg-start bg-light text-muted mt-4">
+    <!-- <footer class="text-center text-lg-start bg-light text-muted mt-4">
       <div
         class="text-center p-4"
         style="background-color: rgba(0, 0, 0, 0.05)"
@@ -36,6 +36,6 @@
         © 2022 Copyright:
         <a class="text-reset fw-bold" href="#">Guglielmo Bartelloni</a>
       </div>
-    </footer>
+    </footer> -->
   </div>
 </template>
