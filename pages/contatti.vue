@@ -1,7 +1,6 @@
 <template>
-  <form name="contact" data-netlify="true"
-        data-netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="contact">
+  <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="contact" />
 
     <!-- Name input -->
     <div class="form-outline mb-4">
