@@ -9,14 +9,14 @@
           <div class="col-12 blog-main">
             <h3 class="pb-3 mb-4 font-bold border-bottom">Eventi</h3>
             <div class="card-columns">
-                <EventsCard
-                  v-for="evento in eventi"
-                  :key="evento.title"
-                  :description="evento.description"
-                  :title="evento.title"
-                  :img="evento.img"
-                  :slug="evento.slug"
-                />
+              <EventsCard
+                v-for="evento in eventi"
+                :key="evento.title"
+                :description="evento.description"
+                :title="evento.title"
+                :img="evento.img"
+                :slug="evento.slug"
+              />
             </div>
           </div>
         </div>

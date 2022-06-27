@@ -1,6 +1,8 @@
 <template>
   <div class="card">
-    <img class="card-img-top" :src="require(`~/assets/images/${img}`)" />
+    <nuxt-link :to="{ name: 'slug', params: { slug: slug } }">
+      <img class="card-img-top" :src="require(`~/assets/images/${img}`)" />
+    </nuxt-link>
     <div class="card-body">
       <nuxt-link
         class="card-title"

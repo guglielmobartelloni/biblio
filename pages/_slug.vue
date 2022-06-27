@@ -1,6 +1,8 @@
 <template>
   <div>
-    <nuxt-link to="/eventi">Torna agli eventi</nuxt-link>
+    <a to="/eventi" class="link-primary pointer" @click="$router.go(-1)"
+      >Torna agli eventi</a
+    >
     <nuxt-content :document="evento"></nuxt-content>
   </div>
 </template>
@@ -22,3 +24,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.pointer {
+  cursor: pointer;
+}
+</style>

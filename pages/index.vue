@@ -21,16 +21,19 @@
       <div class="col-md-6">
         <div class="card flex-md-row mb-4 box-shadow h-md-250">
           <div class="card-body d-flex flex-column align-items-start">
-            <strong class="d-inline-block mb-2 text-primary">World</strong>
+            <!-- <strong class="d-inline-block mb-2 text-primary">{{eventi[0].title}}</strong> -->
             <h3 class="mb-0">
-              <a class="text-dark" href="#">Featured post</a>
+              <nuxt-link
+                class="text-dark"
+                :to="{ name: 'slug', params: { slug: eventi[0].slug } }"
+                >{{ eventi[0].title }}</nuxt-link
+              >
             </h3>
-            <div class="mb-1 text-muted">Nov 12</div>
-            <p class="card-text mb-auto">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content.
-            </p>
-            <a href="#">Continue reading</a>
+            <!-- <div class="mb-1 text-muted">Nov 12</div> -->
+            <p class="card-text mb-auto">{{ eventi[0].description }}</p>
+            <nuxt-link :to="{ name: 'slug', params: { slug: eventi[0].slug } }"
+              >Continua a leggere</nuxt-link
+            >
           </div>
           <img
             class="card-img-right flex-auto d-none d-md-block"
@@ -42,16 +45,19 @@
       <div class="col-md-6">
         <div class="card flex-md-row mb-4 box-shadow h-md-250">
           <div class="card-body d-flex flex-column align-items-start">
-            <strong class="d-inline-block mb-2 text-success">Design</strong>
+            <!-- <strong class="d-inline-block mb-2 text-success">Design</strong> -->
             <h3 class="mb-0">
-              <a class="text-dark" href="#">Post title</a>
+              <nuxt-link
+                class="text-dark"
+                :to="{ name: 'slug', params: { slug: eventi[1].slug } }"
+                >{{ eventi[1].title }}</nuxt-link
+              >
             </h3>
-            <div class="mb-1 text-muted">Nov 11</div>
-            <p class="card-text mb-auto">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content.
-            </p>
-            <a href="#">Continue reading</a>
+            <!-- <div class="mb-1 text-muted">Nov 11</div> -->
+            <p class="card-text mb-auto">{{ eventi[1].description }}</p>
+            <nuxt-link :to="{ name: 'slug', params: { slug: eventi[1].slug } }"
+              >Continua a leggere</nuxt-link
+            >
           </div>
           <img
             class="card-img-right flex-auto d-none d-md-block"
@@ -67,5 +73,12 @@
 <script>
 export default {
   name: 'IndexPage',
+  async asyncData({ $content, params }) {
+    const eventi = await $content('eventi')
+      .sortBy('createdAt', 'desc')
+      .limit(2)
+      .fetch()
+    return { eventi }
+  },
 }
 </script>
