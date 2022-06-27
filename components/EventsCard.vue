@@ -1,5 +1,5 @@
 <template>
-  <div class="card" style="width: 18rem">
+  <div class="card">
     <img class="card-img-top" :src="require(`~/assets/images/${img}`)" />
     <div class="card-body">
       <nuxt-link
