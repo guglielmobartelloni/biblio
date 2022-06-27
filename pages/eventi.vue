@@ -8,18 +8,15 @@
         <div class="row">
           <div class="col-12 blog-main">
             <h3 class="pb-3 mb-4 font-bold border-bottom">Eventi</h3>
-            <div
-              v-for="evento in eventi"
-              :key="evento.title"
-              class="border-bottom"
-            >
-              <div class="blog-post">
-                <!-- <h3 class="blog-post-title">{{ evento.title }}</h3> -->
-                <!-- <p class="blog-post-meta">
-                  {{ formatDate(evento.createdAt) }} da <a>{{evento.author}}</a>
-                </p> -->
-                <nuxt-content :document="evento" />
-              </div>
+            <div class="card-group">
+                <EventsCard
+                  v-for="evento in eventi"
+                  :key="evento.title"
+                  :description="evento.description"
+                  :title="evento.title"
+                  :img="evento.img"
+                  :slug="evento.slug"
+                />
             </div>
           </div>
         </div>
@@ -32,7 +29,6 @@
 export default {
   async asyncData({ $content, params }) {
     const eventi = await $content('eventi').sortBy('createdAt', 'desc').fetch()
-
     return { eventi }
   },
   methods: {

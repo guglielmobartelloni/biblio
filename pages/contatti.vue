@@ -46,11 +46,14 @@
       </div> -->
 
           <!-- Submit button -->
-          <button type="submit" class="btn btn-warning btn-outline-white btn-block mb-4">
+          <button
+            type="submit"
+            class="btn btn-warning btn-outline-white btn-block mb-4"
+          >
             Invia
           </button>
         </form>
       </div>
-      </div>
-      </div>
+    </div>
+  </div>
 </template>
